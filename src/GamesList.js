@@ -1,4 +1,5 @@
 import React from 'react';
+import GameCard from './GameCard';
 
 export default function GamesList({ games }) {
 
@@ -7,7 +8,10 @@ export default function GamesList({ games }) {
   );
 
   const gamesList = (
-    <p>game list</p>
+    <div className="ui four cards">
+      { games.map(game => <GameCard game={game} key={game._id} />) }
+    </div>
+
   );
 
   return (
@@ -16,4 +20,8 @@ export default function GamesList({ games }) {
     </div>
   );
 
+}
+
+GamesList.propTypes = {
+  games: React.PropTypes.array.isRequired
 }
